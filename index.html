@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimalistic Webpage</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        #checkbox-label {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #checkbox {
+            display: none;
+        }
+        #checkbox + label {
+            cursor: pointer;
+            font-size: 48px; /* Increase checkbox size */
+            position: relative;
+            top: 50%; /* Vertically center the checkbox */
+            transform: translateY(-50%);
+        }
+        #checkbox:checked + label:after {
+            content: " \2713";
+        }
+        #checkbox-label-checked {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="checkbox" id="checkbox-label">Heb je gecheckt?</label>
+        <input type="checkbox" id="checkbox">
+        <label for="checkbox" id="checkbox-label-checked">Je hebt gecheckt</label>
+    </div>
+    <script>
+        const checkbox = document.getElementById('checkbox');
+        const checkboxLabel = document.getElementById('checkbox-label');
+        const checkboxLabelChecked = document.getElementById('checkbox-label-checked');
+
+        checkbox.addEventListener('change', function() {
+            if (checkbox.checked) {
+                checkboxLabel.style.display = 'none';
+                checkboxLabelChecked.style.display = 'block';
+            } else {
+                checkboxLabel.style.display = 'block';
+                checkboxLabelChecked.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
